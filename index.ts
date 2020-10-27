@@ -121,19 +121,32 @@ function draw() {
   // Draw map
   for (let y = 0; y < map.length; y++) {
     for (let x = 0; x < map[y].length; x++) {
-      if (map[y][x] === Tile.FLUX)
-        g.fillStyle = "#ccffcc";
-      else if (map[y][x] === Tile.UNBREAKABLE)
-        g.fillStyle = "#999999";
-      else if (map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE)
-        g.fillStyle = "#0000cc";
-      else if (map[y][x] === Tile.BOX || map[y][x] === Tile.FALLING_BOX)
-        g.fillStyle = "#8b4513";
-      else if (map[y][x] === Tile.KEY1 || map[y][x] === Tile.LOCK1)
-        g.fillStyle = "#ffcc00";
-      else if (map[y][x] === Tile.KEY2 || map[y][x] === Tile.LOCK2)
-        g.fillStyle = "#00ccff";
-
+      switch (map[y][x]) {
+        case (Tile.FLUX) : {
+          g.fillStyle = "#ccffcc";
+          break;
+        }
+        case (Tile.UNBREAKABLE) : {
+          g.fillStyle = "#999999";
+          break;
+        }
+        case (Tile.STONE || Tile.FALLING_STONE): {
+          g.fillStyle = "#0000cc";
+          break;
+        }
+        case (Tile.BOX || Tile.FALLING_BOX): {
+          g.fillStyle = "#8b4513";
+          break;
+        }
+         case (Tile.KEY1 || Tile.LOCK1): {
+          g.fillStyle = "#ffcc00";
+          break;
+         }
+        case (Tile.KEY2 || Tile.LOCK2): {
+          g.fillStyle = "#00ccff";
+          break;
+        }
+      }
       if (map[y][x] !== Tile.AIR)
         g.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
     }
